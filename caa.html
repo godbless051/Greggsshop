@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREGGS COFFEE SHOP - Your Perfect Coffee Escape</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="caa.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .footer-links a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        .payment-method {
+            font-size: 1.8rem;
+            margin: 0 5px;
+            color: #ddd;
+        }
+        .newsletter-form .form-control {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+        .newsletter-form .form-control::placeholder {
+            color: #ccc;
+        }
+        .newsletter-form .btn {
+            background-color: #8B4513;
+            border-color: #8B4513;
+        }
+        .newsletter-form .btn:hover {
+            background-color: #6B3410;
+            border-color: #6B3410;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed-top bg-dark navbar navbar-expand-lg navbar-dark" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">GREGGS<span ><img src="image/logo-one.png" alt="" style="height: 60px; width: 100px;"></span>SHOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="ms-auto navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="featured.html">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="d-flex align-items-center text-white text-center hero-section" style="background-image: url('image/banner.jpg'); background-size: cover; background-position: center;">            
+            <div class="container">
+                <h1>Welcome to GREGGS COFFEE SHOP</h1>
+                <h1 class="mb-3 display-5">Your Daily Dose of Happiness</h1>
+                <p class="mb-4 lead">Crafting perfect coffee moments, just for you.</p>
+                <a href="#menu" class="btn btn-primary btn-lg">Explore Our Menu</a>
+                <a href="#featured" class="ms-md-3 mt-3 mt-md-0 btn-outline-light btn btn-lg">Today's Specials</a>
+            </div>
+        </section>
+
+        <section id="about" class="bg-light-brown py-5 about-section">
+            <div class="container">
+                <div class="align-items-center row">
+                    
+                <div class="mb-4 mb-lg-0 col-lg-6">
+                    <img src="image/Pic-two.jpg" class="shadow rounded animate-left img-fluid" alt="Greggs coffee interior" style="width: 100%; max-width: 500px; height: auto;">
+                </div>
+
+                    <div class="col-lg-6">
+                        <h2 class="mb-4 display-4">Our Story: Passion in Every Cup</h2>
+                        <p class="lead">Founded in 2025, Greggs Coffee Shop was born out of a simple passion: to create a cozy haven where exceptional coffee meets heartwarming moments. We meticulously source the finest beans from around the globe, ensuring every cup delivers a rich, unforgettable experience.</p>
+        <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <figure class="shadow-sm figure">
+                            <img src="image/coff-logo.jpg" class="rounded figure-img img-fluid" alt="Barista making coffee">
+                            <figcaption class="text-center figure-caption">Crafting your perfect cup.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <figure class="shadow-sm figure">
+                            <img src="image/Pic-1 (7).jpg" class="rounded figure-img img-fluid" alt="Coffee beans close up">
+                            <figcaption class="text-center figure-caption">Our premium roasted beans.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <figure class="shadow-sm figure">
+                            <img src="image/long.jpg" class="rounded figure-img img-fluid" alt="Cozy seating area">
+                            <figcaption class="text-center figure-caption">Your favorite cozy corner.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <figure class="shadow-sm figure">
+                            <img src="image/Fresh.jpg" class="rounded figure-img img-fluid" alt="Variety of pastries">
+                            <figcaption class="text-center figure-caption">Freshly baked pastries daily.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <figure class="shadow-sm figure">
+                            <img src="image/Are in pour.jpg" class="rounded figure-img img-fluid" alt="Latte art close up">
+                            <figcaption class="text-center figure-caption">Art in every pour.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <figure class="shadow-sm figure">
+                            <img src="image/Sipping with joy.jpg" class="rounded figure-img img-fluid" alt="Happy customer enjoying coffee">
+                            <figcaption class="text-center figure-caption">Joy in every sip.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-dark-brown py-5 text-white contact-section">
+            <div class="container">
+                <h2 class="mb-5 text-white text-center display-4">Get in Touch</h2>
+                <div class="row">
+                    <div class="mb-4 mb-md-0 col-md-6">
+                        <h3>Visit Us</h3>
+                        <p><i class="me-2 fas fa-map-marker-alt"></i> 123 Coffee Lane, Brewville, CA 90210</p>
+                        <p><i class="me-2 fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="me-2 fas fa-envelope"></i> info@greggscoffeeshop.com</p>
+                        <h4 class="mt-4">Opening Hours:</h4>
+                        <ul class="list-unstyled">
+                            <li>Monday - Friday: 7:00 AM - 7:00 PM</li>
+                            <li>Saturday: 8:00 AM - 8:00 PM</li>
+                            <li>Sunday: 8:00 AM - 6:00 PM</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Find Us on the Map</h3>
+                        <div class="bg- shadow-sm rounded map-placeholder">
+                            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="image/Shopimage.jpg" class="rounded img-fluid" alt="Map of a city">
+                                    </a>
+                            <p class="mt-2 text-center"><small class="text-white-50">Click image to view on Google Maps</small></p>
+                        </div>
+                        <div class="mt-4 text-center social-icons">
+                            <a href="#" class="me-3 text-white"><i class="fab fa-facebook-f fa-2x"></i></a>
+                            <a href="#" class="me-3 text-white"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-twitter fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-dark pt-5 pb-3 text-white">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="mb-4 col-lg-4 col-md-6">
+                    <h5 class="mb-4 text-uppercase">GREGGS COFFEE SHOP</h5>
+                    <p class="footer-links">
+                        <img src="image/logo-one.png" alt="Greggs Coffee Shop Logo" class="mb-3" style="height: 60px; width: 100px;">
+                    </p>
+                    <p>We're passionate about serving the finest coffee and creating a warm, welcoming space for our community to gather, work, and relax.</p>
+                    <div class="mt-3">
+                        <span class="payment-method"><i class="fab fa-cc-visa"></i></span>
+                        <span class="payment-method"><i class="fab fa-cc-mastercard"></i></span>
+                        <span class="payment-method"><i class="fab fa-cc-amex"></i></span>
+                        <span class="payment-method"><i class="fab fa-cc-paypal"></i></span>
+                        <span class="payment-method"><i class="fab fa-apple-pay"></i></span>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="mb-4 col-lg-2 col-md-6">
+                    <h5 class="mb-4 text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="#home"><i class="fa-angle-right me-2 fas"></i>Home</a></li>
+                        <li class="mb-2"><a href="about.html"><i class="fa-angle-right me-2 fas"></i>About Us</a></li>
+                        <li class="mb-2"><a href="menu.html"><i class="fa-angle-right me-2 fas"></i>Menu</a></li>
+                        <li class="mb-2"><a href="gallery.html"><i class="fa-angle-right me-2 fas"></i>Gallery</a></li>
+                        <li class="mb-2"><a href="contact.html"><i class="fa-angle-right me-2 fas"></i>Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="mb-4 col-lg-3 col-md-6">
+                    <h5 class="mb-4 text-uppercase">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="me-2 fas fa-map-marker-alt"></i> 123 Coffee Lane, Brewville, CA 90210</li>
+                        <li class="mb-2"><i class="me-2 fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li class="mb-2"><i class="me-2 fas fa-envelope"></i> info@greggscoffeeshop.com</li>
+                    </ul>
+                    <h6 class="mt-4 mb-2 text-uppercase">Opening Hours</h6>
+                    <ul class="list-unstyled">
+                        <li>Mon-Fri: 7:00 AM - 7:00 PM</li>
+                        <li>Sat: 8:00 AM - 8:00 PM</li>
+                        <li>Sun: 8:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="mb-4 col-lg-3 col-md-6">
+                    <h5 class="mb-4 text-uppercase">Newsletter</h5>
+                    <p>Subscribe to our newsletter for special offers and updates</p>
+                    <form class="newsletter-form">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="w-100 btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="mt-4">
+                        <h6 class="mb-3 text-uppercase">Follow Us</h6>
+                        <a href="#" class="bg-primary me-2 social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="bg-info me-2 social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="bg-danger me-2 social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="bg-success social-icon"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <!-- Copyright -->
+            <div class="align-items-center row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 GREGGS COFFEE SHOP. All rights reserved. Crafted with passion.</p>
+                </div>
+                <div class="text-md-end col-md-6">
+                    <a href="#" class="me-3 text-white-50">Privacy Policy</a>
+                    <a href="#" class="me-3 text-white-50">Terms of Service</a>
+                    <a href="#" class="text-white-50">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

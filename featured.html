@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured - Your Coffee Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for the Featured Section */
+        .featured-section {
+            background-color: #f0f0f0; /* Light grey background for the section itself */
+            padding: 80px 0; /* Vertical padding */
+            color: #333;
+        }
+        .featured-section h2 {
+            color: #4a2c2a; /* Darker coffee-like color for heading */
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+        .featured-card {
+            border: none; /* Remove default card border */
+            border-radius: 10px; /* Rounded corners for cards */
+            overflow: hidden; /* Ensures content respects rounded corners */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+            background-color: #ffffff; /* White background for cards */
+        }
+        .featured-card:hover {
+            transform: translateY(-10px); /* Lift card on hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+        .featured-card .card-img-top {
+            height: 250px; /* Fixed height for images */
+            object-fit: cover; /* Ensures images cover the area without distortion */
+        }
+        .featured-card .card-body {
+            padding: 25px;
+            text-align: center;
+        }
+        .featured-card .card-title {
+            color: #6a0d0d; /* Coffee-brown for card titles */
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .featured-card .card-text {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .featured-btn {
+            background-color: #8B4513; /* Saddle Brown for buttons */
+            border-color: #8B4513;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .featured-btn:hover {
+            background-color: #6a3410; /* Darker brown on hover */
+            border-color: #6a3410;
+            color: #fff;
+        }
+
+        /* Body background animation */
+        body {
+            transition: background-color 2s ease-in-out; /* Smooth transition for background changes */
+        }
+    </style>
+</head>
+<body>
+
+    <section id="featured" class="text-center featured-section">
+        <div class="container">
+            <h2 class="mb-5 display-4 fw-bold">Our Featured Selections</h2>
+            <div class="justify-content-center row">
+
+                <div class="mb-4 col-md-6 col-lg-4">
+                    <div class="card featured-card">
+                        <img src="image/Signture espresso 1.jpg" class="card-img-top" alt="Signature Espresso blend">
+                        <div class="card-body">
+                            <h5 class="card-title">Signature Espresso Blend</h5>
+                            <p class="card-text">
+                                Our most popular blend, crafted for a rich, bold, and perfectly balanced espresso shot. Ideal for your morning kick.
+                            </p>
+                            <a href="#" class="btn featured-btn">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4 col-md-6 col-lg-4">
+                    <div class="card featured-card">
+                        <img src="image/Artisan cold brew.jpg" class="card-img-top" alt="Artisan Cold Brew coffee">
+                        <div class="card-body">
+                            <h5 class="card-title">Artisan Cold Brew</h5>
+                            <p class="card-text">
+                                Smooth, low-acid, and incredibly refreshing. Our cold brew is steeped for 18 hours for maximum flavor.
+                            </p>
+                            <a href="#" class="btn featured-btn">Taste the Smoothness</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4 col-md-6 col-lg-4">
+                    <div class="card featured-card">
+                        <img src="image/Assortment of gourmet pastries.jpg" class="card-img-top" alt="Assortment of gourmet pastries">
+                        <div class="card-body">
+                            <h5 class="card-title">Freshly Baked Pastries</h5>
+                            <p class="card-text">
+                                Complement your coffee with our daily selection of gourmet pastries, baked fresh every morning.
+                            </p>
+                            <a href="#" class="btn featured-btn">See Our Menu</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4 col-md-6 col-lg-4">
+                    <div class="card featured-card">
+                        <img src="image/Bag of beans.jpg" class="card-img-top" alt="Bag of single origin coffee beans">
+                        <div class="card-body">
+                            <h5 class="card-title">Single Origin Spotlight</h5>
+                            <p class="card-text">
+                                Explore unique flavor profiles with our rotating selection of single-origin beans, ethically sourced.
+                            </p>
+                            <a href="#" class="btn featured-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4 col-md-6 col-lg-4">
+                    <div class="card featured-card">
+                        <img src="image/logo two.jpg" class="card-img-top mt-5" alt="Coffee mugs and merchandise">
+                        <div class="card-body">
+                            <h5 class="card-title">Coffee Lover's Merchandise</h5>
+                            <p class="card-text">
+                                Show your love for coffee with our stylish mugs, apparel, and brewing accessories.
+                            </p>
+                            <a href="#" class="btn featured-btn">Shop Gear</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4 col-md-6 col-lg-4">
+                    <div class="card featured-card">
+                        <img src="image/coffee box.jpg" class="card-img-top" alt="Coffee beans delivered to your door">
+                        <div class="card-body">
+                            <h5 class="card-title">Coffee Subscription Boxes</h5>
+                            <p class="card-text">
+                                Never run out of your favorite beans! Get fresh coffee delivered to your doorstep monthly.
+                            </p>
+                            <a href="#" class="btn featured-btn">Subscribe Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> </div> </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript for changing body background color
+        const colors = ['#f5e6d3', '#e0d8c0', '#d3e0d8', '#d8d3e0']; // Light, subtle colors
+        let colorIndex = 0;
+
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }
+
+        setInterval(changeBackgroundColor, 5000); // Change every 5 seconds
+        changeBackgroundColor(); // Set initial color
+    </script>
+</body>
+</html>
