@@ -1,4 +1,6 @@
 .body {
+    padding: 0%;
+    margin: 0%;
     font-family: 'Poppins', sans-serif;
     color: #333;
     line-height: 1.6;
@@ -7,7 +9,7 @@
     padding-top: 56px;
 }
 
-ro0
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
@@ -17,8 +19,9 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .navbar {
-    background: linear-gradient(270deg, #512f10, #3c3120c1, #ed902c, #7d7063);
+    background: linear-gradient(270deg, #512f10, #3c3120c1, #ed902c, #d2a87e);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    
 }
 
 .navbar-brand {
@@ -27,6 +30,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: #918d8a !important;
 }
+
+.selling-item { background: linear-gradient(270deg,rgb(120, 74, 31)0, #3c3120c1, #ed902c, #fac38c) !important; }
+
 
 .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.7) !important;

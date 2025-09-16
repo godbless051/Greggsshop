@@ -7,17 +7,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(20px); }
+            50% { opacity: 1; transform: translateY(0); }
+        }
+
+        .about-text-1 {
+            animation: fadeInOut 5s ease-in-out infinite;
+        }
+
+        .about-text-1 {
+            animation-delay: 0s;
+        }
+
+
+        .lead {
+            font-family: ;
+        }
         .about-section {
             background-color: #f8f8f8; 
             color: #333;
             position: relative; /* For positioning the button */
         }
         .about-img {
-            border-radius: 8px; 
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 100%; 
+            max-width: 100%;
             height: auto;
+
+  /* Add smooth transition for transform and shadow */
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+      }
+
+        /* Hover effect */
+    .about-img:hover {
+            transform: scale(1.05); /* Slight zoom-in */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow */
         }
+
         .about-text h3 {
             color: #6a0d0d; 
             font-weight: 700; 
@@ -67,24 +94,24 @@
         </a>
         
         <div class="container">
-            <div class="align-items-center justify-content-center row">
-                <div class="mb-5 text-center col-12">
-                    <h2 class="display-4 fw-bold">Our Story, Your Coffee</h2>
+            <div class="align-items-center justify-content-center row g-5">
+                <div class="mb-7 text-center col-12">
+                    <h2 class="about-text-1 about-text display-4 fw-bold">Our Story, Your Coffee</h2>
                     <p class="lead">Crafting moments, one cup at a time.</p>
                 </div>
-                <div class="mb-4 mb-md-0 col-md-6 col-lg-5">
-                    <img src="image/Cup & B.jpg" class="img-fluid about-img" alt="A cup of freshly brewed coffee with beans scattered around">
+                <div class="mb-4 mb-md-0 col-md-6 col-lg-5"> 
+                    <img src="image/Cup & B.jpg" class="img-fluid about-img" alt="A cup of freshly brewed coffee with beans scattered around"/>
                 </div>
                 <div class="col-md-6 col-lg-5 about-text">
                     <h3 class="mb-4">From Bean to Brew: Our Passion for Perfection</h3>
                     <p class="text-justify">
-                        Welcome to [Your Coffee Store Name]! We believe that a great cup of coffee is more than just a drink; it's an experience, a ritual, and a moment of pure bliss. Our journey began [Year] with a simple dream: to bring exceptional coffee, sourced ethically and roasted with passion, to our community.
+                        Welcome to Greggs Coffee Shop! We believe that a great cup of coffee is more than just a drink; it's an experience, a ritual, and a moment of pure bliss. Our journey began [Year] with a simple dream: to bring exceptional coffee, sourced ethically and roasted with passion, to our community.
                     </p>
                     <p class="my-4 text-justify">
                         We meticulously select premium beans from the world's most renowned coffee-growing regions, ensuring every sip tells a story of rich flavor and distinct character. Our expert baristas are dedicated to perfecting every pour, from the robust espresso to the velvety latte, ensuring a consistent and delightful experience every time you visit.
                     </p>
                     <p class="text-justify">
-                        Beyond the brew, [Your Coffee Store Name] is a place where connections are made, ideas are sparked, and a sense of belonging thrives. We invite you to step into our cozy atmosphere, savor the aroma, and become a part of our coffee-loving family.
+                        Beyond the brew, Greggs Coffee Shop is a place where connections are made, ideas are sparked, and a sense of belonging thrives. We invite you to step into our cozy atmosphere, savor the aroma, and become a part of our coffee-loving family.
                     </p>
                 </div>
             </div>

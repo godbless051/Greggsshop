@@ -11,6 +11,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+
+         .navbar-custom {
+            transition: transform 0.3s ease-in-out;
+        }
+        .navbar-hidden {
+            transform: translateY(-100%);
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(20px); }
+            50% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-text {
+            animation: fadeInOut 5s infinite ease-in-out;
+        }
+        
+        .hero-text-1 {
+            animation-delay: 0s;
+        }
+
+        .hero-text-2 {
+            animation-delay: 1.5s;
+        }
+
+        .hero-text-3 {
+            animation-delay: 3s;
+        }
+
+
         .footer-links a {
             text-decoration: none;
             color: #ddd;
@@ -57,9 +87,15 @@
 </head>
 <body>
 
-    <nav class="fixed-top bg-dark navbar navbar-expand-lg navbar-dark" id="mainNav">
+    <!-- <nav class="fixed-top bg-dark navbar navbar-expand-lg navbar-dark" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#home">GREGGS<span ><img src="image/logo-one.png" alt="" style="height: 60px; width: 100px;"></span>SHOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <nav id="mainNavbar" class="fixed-top bg-dark shadow navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="d-flex align-items-center justify-content-between container">
+            <a class="navbar-brand fs-3 fw-bold" href="index.html"><span><img src="image/logo-one.png" alt="" style="height: 60px; width: 100px;"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -91,11 +127,11 @@
     <main>
         <section id="home" class="d-flex align-items-center text-white text-center hero-section" style="background-image: url('image/banner.jpg'); background-size: cover; background-position: center;">            
             <div class="container">
-                <h1>Welcome to GREGGS COFFEE SHOP</h1>
-                <h1 class="mb-3 display-5">Your Daily Dose of Happiness</h1>
-                <p class="mb-4 lead">Crafting perfect coffee moments, just for you.</p>
-                <a href="#menu" class="btn btn-primary btn-lg">Explore Our Menu</a>
-                <a href="#featured" class="ms-md-3 mt-3 mt-md-0 btn-primary btn btn-lg">Today's Specials</a>
+                <h1 class="hero-text-1 hero-text">Welcome to GREGGS SHOP</h1>
+                <h1 class="mb-3 hero-text-2 hero-text display-5">Your Daily Dose of Happiness</h1>
+                <p class="mb-4 hero-text-3 hero-text lead">Crafting perfect coffee moments, just for you.</p>
+                <a href="menu.html" class="btn btn-primary btn-lg">Explore Our Menu</a>
+                <a href="special.html#" class="ms-md-3 mt-3 mt-md-0 btn-primary btn btn-lg">Order Now -></a>
             </div>
         </section>
 
@@ -104,13 +140,14 @@
                 <div class="align-items-center row">
                     
                 <div class="mb-4 mb-lg-0 col-lg-6">
-                    <img src="image/Pic-two.jpg" class="shadow rounded animate-left img-fluid" alt="Greggs coffee interior" style="width: 100%; max-width: 500px; height: auto;">
+                    
+                    <img src="image/Pic-two.jpg" class="shadow rounded img-fluid" alt="Greggs coffee interior" style=" width: 100%; max-width: 600px; height: auto;">
                 </div>
 
                     <div class="col-lg-6">
                         <h2 class="mb-4 display-4">Our Story: Passion in Every Cup</h2>
                         <p class="lead">Founded in 2025, Greggs Coffee Shop was born out of a simple passion: to create a cozy haven where exceptional coffee meets heartwarming moments. We meticulously source the finest beans from around the globe, ensuring every cup delivers a rich, unforgettable experience.</p>
-        <div class="row g-4">
+                    <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <figure class="shadow-sm figure">
                             <img src="image/coff-logo.jpg" class="rounded figure-img img-fluid" alt="Barista making coffee">
@@ -150,6 +187,91 @@
                 </div>
             </div>
         </section>
+
+    <!-- Best Selling Item Section -->
+    <section class="py-5" id="selling-item">
+         <div class="text-center container">
+
+    <!-- Heading -->
+        <h2 class="mb-3 fw-bold" style="font-family: 'Playfair Display', serif;">
+      Best Selling Item
+        </h2>
+        <p class="mb-5 text-muted" style="max-width: 700px; margin: 0 auto; font-family: 'Poppins', sans-serif;">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+    </p>
+
+    <!-- Category Tabs
+    <ul class="justify-content-center mb-4 nav">
+      <li class="nav-item">
+        <a class="nav-link active fw-semibold" href="#">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fw-semibold" href="#">Black</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fw-semibold" href="#">Espresso</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fw-semibold" href="#">Doppio</a>
+      </li>
+    </ul> -->
+
+    <!-- Coffee Cards -->
+    <div class="justify-content-center row g-4">
+      <!-- Cappuccino -->
+      <div class="col-md-4 col-sm-6">
+        <div class="shadow-sm border-0 h-100 card">
+          <img src="image/Cappuccino.jpg" class="card-img-top" alt="Cappuccino">
+          <div class="card-body">
+            <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Cappuccino</h5>
+          </div>
+          <div class="bg-transparent border-0 card-footer">
+            <a href="#" class="btn-outline-dark w-100 btn">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Americano -->
+      <div class="col-md-4 col-sm-6">
+        <div class="shadow-sm border-0 h-100 card">
+          <img src="image/Americano.jpg" class="card-img-top" alt="Americano">
+          <div class="card-body">
+            <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Americano</h5>
+          </div>
+          <div class="bg-transparent border-0 card-footer">
+            <a href="#" class="btn-outline-dark w-100 btn">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Espresso -->
+      <div class="col-md-4 col-sm-6">
+        <div class="shadow-sm border-0 h-100 card">
+          <img src="image/Espresso.jpg" class="card-img-top" alt="Espresso">
+          <div class="card-body">
+            <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Espresso</h5>
+          </div>
+          <div class="bg-transparent border-0 card-footer">
+            <a href="#" class="btn-outline-dark w-100 btn">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="d-flex justify-content-center gap-3 mt-5">
+      <button class="rounded-circle btn-outline-dark btn">
+        <i class="fa-arrow-left fa-solid"></i>
+      </button>
+      <button class="rounded-circle btn btn-dark">
+        <i class="fa-arrow-right fa-solid"></i>
+      </button>
+    </div>
+
+  </div>
+</section>
+
 
         <section id="contact" class="bg-dark-brown py-5 text-white contact-section">
             <div class="container">
@@ -271,5 +393,27 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script>
+        const navbar = document.getElementById('mainNavbar');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > navbar.offsetHeight) {
+                // Scrolling down past the navbar height
+                navbar.classList.add('navbar-hidden');
+            } else {
+                // Scrolling up or at the top
+                navbar.classList.remove('navbar-hidden');
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+    
 </body>
+</html>
+</body>
+</html>
+</html>
+</html>
+</html>
 </html>

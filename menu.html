@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 
     <style>
+        /* Text style */
+         @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(20px); }
+            50% { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-text-1 {
+            animation: fadeInOut 5s ease-in-out infinite;
+        }
+
+        .menu-text-1 {
+            animation-delay: 0s;
+        }
+
         /* Custom CSS for the Menu Section */
         .menu-section {
             background-color: #ffffff; /* White background for the menu section */
@@ -111,7 +125,7 @@
 
     <section id="menu" class="text-center menu-section">
         <div class="container">
-            <h2 class="mb-5 display-4 fw-bold">Our Delicious Menu</h2>
+            <h2 class="mb-5 menu-text-1 display-4 fw-bold">Our Delicious Menu</h2>
 
             <ul class="justify-content-center mb-5 nav nav-pills menu-tabs" id="menuTabs" role="tablist">
                 <li class="nav-item" role="presentation">
