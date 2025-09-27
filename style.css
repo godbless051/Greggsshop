@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .navbar {
-    background: linear-gradient(270deg, #512f10, #3c3120c1, #ed902c, #d2a87e);
+    background: linear-gradient(270deg, #512f10, #3c3120c1, #ed902c, #d2a87e) !important;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     
 }
@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #918d8a !important;
 }
 
-.selling-item { background: linear-gradient(270deg,rgb(120, 74, 31)0, #3c3120c1, #ed902c, #fac38c) !important; }
+/* .selling-item { background: linear-gradient(270deg,rgb(120, 74, 31)0, #3c3120c1, #ed902c, #fac38c) !important; } */
 
 
 .navbar-nav .nav-link {

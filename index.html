@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GREGGS COFFEE SHOP - Your Perfect Coffee Escape</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-
-         .navbar-custom {
+        :root {
+            /* --primary-brown: #8B4513; */
+            --light-brown: #D2B48C;
+            --dark-brown: #654321;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding-top: 76px; /* Account for fixed navbar */
+        }
+        
+        .navbar-custom {
             transition: transform 0.3s ease-in-out;
+            background: linear-gradient(135deg, #d29e7b 0%, #d46312 25%, #261408 50%, #8b3a15 100%) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         .navbar-hidden {
             transform: translateY(-100%);
@@ -40,6 +51,33 @@
             animation-delay: 3s;
         }
 
+        .bg-light-brown {
+            background-color: var(--light-brown);
+        }
+        
+        .bg-dark-brown {
+            background-color: var(--dark-brown);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-brown);
+            border-color: var(--primary-brown);
+        }
+        
+        .btn-primary:hover {
+            background-color: #6B3410;
+            border-color: #6B3410;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-brown);
+            border-color: var(--primary-brown);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-brown);
+            color: white;
+        }
 
         .footer-links a {
             text-decoration: none;
@@ -76,24 +114,175 @@
             color: #ccc;
         }
         .newsletter-form .btn {
-            background-color: #8B4513;
-            border-color: #8B4513;
+            background-color: var(--primary-brown);
+            border-color: var(--primary-brown);
         }
         .newsletter-form .btn:hover {
             background-color: #6B3410;
             border-color: #6B3410;
         }
+        
+        /* Cart badge */
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Order modal styles */
+        .coffee-option {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .coffee-option:hover, .coffee-option.selected {
+            border-color: var(--primary-brown) !important;
+            transform: translateY(-5px);
+        }
+        
+        /* Cart sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: rgb(255, 255, 255);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1050;
+            overflow-y: auto;
+        }
+        
+        .cart-sidebar.open {
+            right: 0;
+        }
+        
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1040;
+            display: none;
+        }
+        
+        .cart-overlay.open {
+            display: block;
+        }
+        
+        @media (max-width: 576px) {
+            .cart-sidebar {
+                width: 100%;
+            }
+        }
+        
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dee2e6;
+            background: #f8f9fa;
+            cursor: pointer;
+        }
+        
+        .hero-section {
+            background-image: url('image/Pic-1\ \(4\).jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Best Selling Items Slider */
+        .products-slider {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .products-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card {
+            height: 100%;
+            flex: 0 0 calc(33.333% - 20px);
+            margin: 0 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 992px) {
+            .product-card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .product-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+        }
+        
+        .slider-controls {
+            margin-top: 10px;
+        }
+        
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .slider-btn:hover {
+            background: #6B3410;
+            transform: scale(1.1);
+        }
+        
+        .slider-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
 
-    <!-- <nav class="fixed-top bg-dark navbar navbar-expand-lg navbar-dark" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="#home">GREGGS<span ><img src="image/logo-one.png" alt="" style="height: 60px; width: 100px;"></span>SHOP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <nav id="mainNavbar" class="fixed-top bg-dark shadow navbar navbar-expand-lg navbar-dark navbar-custom">
+    <nav id="mainNavbar" class="fixed-top shadow navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="d-flex align-items-center justify-content-between container">
             <a class="navbar-brand fs-3 fw-bold" href="index.html"><span><img src="image/logo-one.png" alt="" style="height: 60px; width: 100px;"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,159 +308,232 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
+                    <li class="position-relative nav-item">
+                        <a class="nav-link" href="#" id="cartButton">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" id="cartBadge">0</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h4>Your Order</h4>
+                <button type="button" class="btn-close" id="closeCart"></button>
+            </div>
+            
+            <div id="cartItems">
+                <!-- Cart items will be added here dynamically -->
+                <div class="py-4 text-muted text-center" id="emptyCartMessage">
+                    <i class="mb-3 fas fa-shopping-cart fa-2x"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            
+            <div class="mt-4 pt-4 border-top">
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Tax (10%):</span>
+                    <span id="cartTax">$0.00</span>
+                </div>
+                <div class="d-flex justify-content-between fw-bold fs-5">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                
+                <button class="mt-4 w-100 btn btn-primary" id="checkoutButton">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
     <main>
-        <section id="home" class="d-flex align-items-center text-white text-center hero-section" style="background-image: url('image/banner.jpg'); background-size: cover; background-position: center;">            
+        <section id="home" class="d-flex align-items-center text-white text-center hero-section">            
             <div class="container">
                 <h1 class="hero-text-1 hero-text">Welcome to GREGGS SHOP</h1>
                 <h1 class="mb-3 hero-text-2 hero-text display-5">Your Daily Dose of Happiness</h1>
                 <p class="mb-4 hero-text-3 hero-text lead">Crafting perfect coffee moments, just for you.</p>
                 <a href="menu.html" class="btn btn-primary btn-lg">Explore Our Menu</a>
-                <a href="special.html#" class="ms-md-3 mt-3 mt-md-0 btn-primary btn btn-lg">Order Now -></a>
+                <a href="order.html" class="ms-md-3 mt-3 mt-md-0 btn btn-primary btn-lg">Order Now <i class="fa-arrow-right ms-1 fas"></i></a>
             </div>
         </section>
 
         <section id="about" class="bg-light-brown py-5 about-section">
             <div class="container">
                 <div class="align-items-center row">
-                    
-                <div class="mb-4 mb-lg-0 col-lg-6">
-                    
-                    <img src="image/Pic-two.jpg" class="shadow rounded img-fluid" alt="Greggs coffee interior" style=" width: 100%; max-width: 600px; height: auto;">
-                </div>
-
+                    <div class="mb-4 mb-lg-0 col-lg-6">
+                        <img src="image/Shopimage.jpg" class="shadow rounded img-fluid" alt="Greggs coffee interior" style=" width: 100%; max-width: 600px; height: auto;">
+                    </div>
                     <div class="col-lg-6">
                         <h2 class="mb-4 display-4">Our Story: Passion in Every Cup</h2>
                         <p class="lead">Founded in 2025, Greggs Coffee Shop was born out of a simple passion: to create a cozy haven where exceptional coffee meets heartwarming moments. We meticulously source the finest beans from around the globe, ensuring every cup delivers a rich, unforgettable experience.</p>
-                    <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <figure class="shadow-sm figure">
-                            <img src="image/coff-logo.jpg" class="rounded figure-img img-fluid" alt="Barista making coffee">
-                            <figcaption class="text-center figure-caption">Crafting your perfect cup.</figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <figure class="shadow-sm figure">
-                            <img src="image/Pic-1 (7).jpg" class="rounded figure-img img-fluid" alt="Coffee beans close up">
-                            <figcaption class="text-center figure-caption">Our premium roasted beans.</figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <figure class="shadow-sm figure">
-                            <img src="image/long.jpg" class="rounded figure-img img-fluid" alt="Cozy seating area">
-                            <figcaption class="text-center figure-caption">Your favorite cozy corner.</figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <figure class="shadow-sm figure">
-                            <img src="image/Fresh.jpg" class="rounded figure-img img-fluid" alt="Variety of pastries">
-                            <figcaption class="text-center figure-caption">Freshly baked pastries daily.</figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <figure class="shadow-sm figure">
-                            <img src="image/Are in pour.jpg" class="rounded figure-img img-fluid" alt="Latte art close up">
-                            <figcaption class="text-center figure-caption">Art in every pour.</figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <figure class="shadow-sm figure">
-                            <img src="image/Sipping with joy.jpg" class="rounded figure-img img-fluid" alt="Happy customer enjoying coffee">
-                            <figcaption class="text-center figure-caption">Joy in every sip.</figcaption>
-                        </figure>
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-4">
+                                <figure class="shadow-sm figure">
+                                    <img src="image/coff-logo.jpg" class="rounded figure-img img-fluid" alt="Barista making coffee">
+                                    <figcaption class="text-center figure-caption">Crafting your perfect cup.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <figure class="shadow-sm figure">
+                                    <img src="image/Pic-1 (7).jpg" class="rounded figure-img img-fluid" alt="Coffee beans close up">
+                                    <figcaption class="text-center figure-caption">Our premium roasted beans.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <figure class="shadow-sm figure">
+                                    <img src="image/long.jpg" class="rounded figure-img img-fluid" alt="Cozy seating area">
+                                    <figcaption class="text-center figure-caption">Your favorite cozy corner.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <figure class="shadow-sm figure">
+                                    <img src="image/Fresh.jpg" class="rounded figure-img img-fluid" alt="Variety of pastries">
+                                    <figcaption class="text-center figure-caption">Freshly baked pastries daily.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <figure class="shadow-sm figure">
+                                    <img src="image/Are in pour.jpg" class="rounded figure-img img-fluid" alt="Latte art close up">
+                                    <figcaption class="text-center figure-caption">Art in every pour.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <figure class="shadow-sm figure">
+                                    <img src="image/Sipping with joy.jpg" class="rounded figure-img img-fluid" alt="Happy customer enjoying coffee">
+                                    <figcaption class="text-center figure-caption">Joy in every sip.</figcaption>
+                                </figure>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-    <!-- Best Selling Item Section -->
-    <section class="py-5" id="selling-item">
-         <div class="text-center container">
+        <!-- Best Selling Item Section -->
+        <section class="py-5" id="selling-item">
+            <div class="text-center container">
+                <h2 class="mb-3 fw-bold" style="font-family: 'Playfair Display', serif;">
+                    Best Selling Item
+                </h2>
+                <p class="mb-5 text-muted" style="max-width: 700px; margin: 0 auto; font-family: 'Poppins', sans-serif;">
+                    Discover our most popular coffee selections, loved by our regulars and newcomers alike.
+                </p>
 
-    <!-- Heading -->
-        <h2 class="mb-3 fw-bold" style="font-family: 'Playfair Display', serif;">
-      Best Selling Item
-        </h2>
-        <p class="mb-5 text-muted" style="max-width: 700px; margin: 0 auto; font-family: 'Poppins', sans-serif;">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-    </p>
+                <!-- Coffee Cards Slider -->
+                <div class="products-slider">
+                    <div class="products-container" id="productsContainer">
+                        <!-- Cappuccino -->
+                        <div class="product-card">
+                            <div class="border-0 h-70 card">
+                                <img src="image/Cappuccino.jpg" class="card-img-top" alt="Cappuccino">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Cappuccino</h5>
+                                    <p class="text-muted card-text">Perfect balance of espresso, steamed milk, and foam</p>
+                                    <p class="text-primary card-text fw-bold">$4.50</p>
+                                </div>
+                                <div class="bg-transparent border-0 card-footer">
+                                    <button class="order-button btn-outline-dark w-100 btn" data-item="Cappuccino" data-price="4.50" data-image="image/Cappuccino.jpg">Order Now</button>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Category Tabs
-    <ul class="justify-content-center mb-4 nav">
-      <li class="nav-item">
-        <a class="nav-link active fw-semibold" href="#">All</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link fw-semibold" href="#">Black</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link fw-semibold" href="#">Espresso</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link fw-semibold" href="#">Doppio</a>
-      </li>
-    </ul> -->
+                        <!-- Americano -->
+                        <div class="product-card">
+                            <div class="border-0 h-70 card">
+                                <img src="image/Americano.jpg" class="card-img-top" alt="Americano">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Americano</h5>
+                                    <p class="text-muted card-text">Espresso shots topped with hot water for a rich flavor</p>
+                                    <p class="text-primary card-text fw-bold">$3.75</p>
+                                </div>
+                                <div class="bg-transparent border-0 card-footer">
+                                    <button class="order-button btn-outline-dark w-100 btn" data-item="Americano" data-price="3.75" data-image="image/Americano.jpg">Order Now</button>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Coffee Cards -->
-    <div class="justify-content-center row g-4">
-      <!-- Cappuccino -->
-      <div class="col-md-4 col-sm-6">
-        <div class="shadow-sm border-0 h-100 card">
-          <img src="image/Cappuccino.jpg" class="card-img-top" alt="Cappuccino">
-          <div class="card-body">
-            <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Cappuccino</h5>
-          </div>
-          <div class="bg-transparent border-0 card-footer">
-            <a href="#" class="btn-outline-dark w-100 btn">Order Now</a>
-          </div>
-        </div>
-      </div>
+                        <!-- Espresso -->
+                        <div class="product-card">
+                            <div class="border-0 h-70 card">
+                                <img src="image/Espresso.jpg" class="card-img-top" alt="Espresso">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Espresso</h5>
+                                    <p class="text-muted card-text">Strong and concentrated coffee, served in a small shot</p>
+                                    <p class="text-primary card-text fw-bold">$3.25</p>
+                                </div>
+                                <div class="bg-transparent border-0 card-footer">
+                                    <button class="order-button btn-outline-dark w-100 btn" data-item="Espresso" data-price="3.25" data-image="image/Espresso.jpg">Order Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Latte -->
+                        <div class="product-card">
+                            <div class="border-0 h-70 card">
+                                <img src="image/Latte.jpg" class="card-img-top" alt="Latte">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Latte</h5>
+                                    <p class="text-muted card-text">Smooth espresso with steamed milk and light foam</p>
+                                    <p class="text-primary card-text fw-bold">$4.75</p>
+                                </div>
+                                <div class="bg-transparent border-0 card-footer">
+                                    <button class="order-button btn-outline-dark w-100 btn" data-item="Latte" data-price="4.75" data-image="https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Order Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mocha -->
+                        <div class="product-card">
+                            <div class="border-0 h-70 card">
+                                <img src="image/Mocha.jpg" class="card-img-top" alt="Mocha">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Mocha</h5>
+                                    <p class="text-muted card-text">Chocolate-infused espresso with steamed milk</p>
+                                    <p class="text-primary card-text fw-bold">$5.25</p>
+                                </div>
+                                <div class="bg-transparent border-0 card-footer">
+                                    <button class="order-button btn-outline-dark w-100 btn" data-item="Mocha" data-price="5.25" data-image="https://images.unsplash.com/photo-1595867818082-083862f3aaf4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Order Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Macchiato -->
+                        <div class="product-card">
+                            <div class="border-0 h-70 card">
+                                <img src="image/save.jpg" class="card-img-top" alt="Macchiato">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Macchiato</h5>
+                                    <p class="text-muted card-text">Espresso with a small amount of milk foam</p>
+                                    <p class="text-primary card-text fw-bold">$4.00</p>
+                                </div>
+                                <div class="bg-transparent border-0 card-footer">
+                                    <button class="order-button btn-outline-dark w-100 btn" data-item="Macchiato" data-price="4.00" data-image="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80">Order Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-      <!-- Americano -->
-      <div class="col-md-4 col-sm-6">
-        <div class="shadow-sm border-0 h-100 card">
-          <img src="image/Americano.jpg" class="card-img-top" alt="Americano">
-          <div class="card-body">
-            <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Americano</h5>
-          </div>
-          <div class="bg-transparent border-0 card-footer">
-            <a href="#" class="btn-outline-dark w-100 btn">Order Now</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Espresso -->
-      <div class="col-md-4 col-sm-6">
-        <div class="shadow-sm border-0 h-100 card">
-          <img src="image/Espresso.jpg" class="card-img-top" alt="Espresso">
-          <div class="card-body">
-            <h5 class="card-title fw-bold" style="font-family:'Playfair Display', serif;">Espresso</h5>
-          </div>
-          <div class="bg-transparent border-0 card-footer">
-            <a href="#" class="btn-outline-dark w-100 btn">Order Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Navigation Arrows -->
-    <div class="d-flex justify-content-center gap-3 mt-5">
-      <button class="rounded-circle btn-outline-dark btn">
-        <i class="fa-arrow-left fa-solid"></i>
-      </button>
-      <button class="rounded-circle btn btn-dark">
-        <i class="fa-arrow-right fa-solid"></i>
-      </button>
-    </div>
-
-  </div>
-</section>
-
+                <!-- Navigation Arrows -->
+                <div class="d-flex justify-content-center gap-3 mt-5 slider-controls">
+                    <button class="slider-btn" id="prevButton">
+                        <i class="fa-arrow-left fa-solid"></i>
+                    </button>
+                    <button class="slider-btn" id="nextButton">
+                        <i class="fa-arrow-right fa-solid"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
 
         <section id="contact" class="bg-dark-brown py-5 text-white contact-section">
             <div class="container">
@@ -279,9 +541,9 @@
                 <div class="row">
                     <div class="mb-4 mb-md-0 col-md-6">
                         <h3>Visit Us</h3>
-                        <p><i class="me-2 fas fa-map-marker-alt"></i> 123 Coffee Lane, Brewville, CA 90210</p>
+                        <p><i class="me-2 fas fa-map-marker-alt"></i> Block 22 Coffee Lane, Brewville, CA 90210</p>
                         <p><i class="me-2 fas fa-phone"></i> +1 (555) 123-4567</p>
-                        <p><i class="me-2 fas fa-envelope"></i> info@greggscoffeeshop.com</p>
+                        <p><i class="me-2 fas fa-envelope"></i> greggscafashop.com</p>
                         <h4 class="mt-4">Opening Hours:</h4>
                         <ul class="list-unstyled">
                             <li>Monday - Friday: 7:00 AM - 7:00 PM</li>
@@ -293,20 +555,209 @@
                         <h3>Find Us on the Map</h3>
                         <div class="bg- shadow-sm rounded map-placeholder">
                             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="image/Shopimage.jpg" class="rounded img-fluid" alt="Map of a city">
-                                    </a>
+                                <img src="image/Maps.png" class="rounded img-fluid" alt="Map of a city">
+                            </a>
                             <p class="mt-2 text-center"><small class="text-white-50">Click image to view on Google Maps</small></p>
                         </div>
-                        <div class="mt-4 text-center social-icons">
+                        <!-- <div class="mt-4 text-center social-icons">
                             <a href="#" class="me-3 text-white"><i class="fab fa-facebook-f fa-2x"></i></a>
                             <a href="#" class="me-3 text-white"><i class="fab fa-instagram fa-2x"></i></a>
                             <a href="#" class="text-white"><i class="fab fa-twitter fa-2x"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Order Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Customize Your Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="" id="modalItemImage" class="rounded img-fluid" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 id="modalItemName"></h4>
+                            <p id="modalItemDescription" class="text-muted"></p>
+                            <p class="text-primary fs-4" id="modalItemPrice"></p>
+                            
+                            <div class="mb-4">
+                                <h6>Size</h6>
+                                <div class="d-flex gap-2">
+                                    <div class="flex-fill p-3 border rounded text-center coffee-option" data-size="small" data-price-modifier="0">
+                                        <h6>Small</h6>
+                                        <p class="mb-0">12 oz</p>
+                                    </div>
+                                    <div class="flex-fill p-3 border rounded text-center coffee-option selected" data-size="medium" data-price-modifier="0.5">
+                                        <h6>Medium</h6>
+                                        <p class="mb-0">16 oz</p>
+                                    </div>
+                                    <div class="flex-fill p-3 border rounded text-center coffee-option" data-size="large" data-price-modifier="1">
+                                        <h6>Large</h6>
+                                        <p class="mb-0">20 oz</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6>Milk Options</h6>
+                                <select class="form-select" id="milkOption">
+                                    <option value="whole" data-price-modifier="0">Whole Milk</option>
+                                    <option value="skim" data-price-modifier="0">Skim Milk</option>
+                                    <option value="oat" data-price-modifier="0.5">Oat Milk (+$0.50)</option>
+                                    <option value="almond" data-price-modifier="0.5">Almond Milk (+$0.50)</option>
+                                    <option value="soy" data-price-modifier="0.5">Soy Milk (+$0.50)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6>Extras</h6>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="extraShot" data-price-modifier="0.75">
+                                    <label class="form-check-label" for="extraShot">
+                                        Extra Shot (+$0.75)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="whippedCream" data-price-modifier="0.5">
+                                    <label class="form-check-label" for="whippedCream">
+                                        Whipped Cream (+$0.50)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="1" id="caramelDrizzle" data-price-modifier="0.5">
+                                    <label class="form-check-label" for="caramelDrizzle">
+                                        Caramel Drizzle (+$0.50)
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-center mb-4">
+                                <h6 class="me-3 mb-0">Quantity:</h6>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn-outline-secondary btn" id="decreaseQty">-</button>
+                                    <input type="number" class="mx-2 text-center form-control" id="itemQty" value="1" min="1" style="width: 70px;">
+                                    <button class="btn-outline-secondary btn" id="increaseQty">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h5>Total: <span id="modalTotalPrice" class="text-primary"></span></h5>
+                                <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkoutModalLabel">Complete Your Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Order Summary</h5>
+                            <div id="checkoutItems">
+                                <!-- Checkout items will be added here -->
+                            </div>
+                            <div class="mt-3 pt-3 border-top">
+                                <div class="d-flex justify-content-between">
+                                    <span>Subtotal:</span>
+                                    <span id="checkoutSubtotal">$0.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Tax (10%):</span>
+                                    <span id="checkoutTax">$0.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between fw-bold">
+                                    <span>Total:</span>
+                                    <span id="checkoutTotal">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Customer Information</h5>
+                            <form id="checkoutForm">
+                                <div class="mb-3">
+                                    <label for="customerName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="customerName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="customerEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="customerEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="customerPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="customerPhone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Pickup Method</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="pickupMethod" id="pickupInStore" value="pickup" checked>
+                                        <label class="form-check-label" for="pickupInStore">
+                                            Pickup in Store
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="pickupMethod" id="delivery" value="delivery">
+                                        <label class="form-check-label" for="delivery">
+                                            Delivery (Additional $5 fee)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="deliveryAddress" class="mb-3 d-none">
+                                    <label for="address" class="form-label">Delivery Address</label>
+                                    <textarea class="form-control" id="address" rows="2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="specialInstructions" class="form-label">Special Instructions</label>
+                                    <textarea class="form-control" id="specialInstructions" rows="2"></textarea>
+                                </div>
+                                <button type="submit" class="w-100 btn btn-primary">Place Order</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Order Confirmed!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="text-center modal-body">
+                    <i class="mb-3 text-success fas fa-check-circle fa-5x"></i>
+                    <h4>Thank you for your order!</h4>
+                    <p>Your order has been received and is being prepared.</p>
+                    <p class="fw-bold">Order #: <span id="orderNumber"></span></p>
+                    <p>Estimated ready time: <span id="readyTime"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="printReceipt">Print Receipt</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Enhanced Footer -->
     <footer class="bg-dark pt-5 pb-3 text-white">
@@ -341,7 +792,7 @@
                 </div>
                 
                 <!-- Contact Info -->
-                <div class="mb-4 col-lg-3 col-md-6">
+                <!-- <div class="mb-4 col-lg-3 col-md-6">
                     <h5 class="mb-4 text-uppercase">Contact Info</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><i class="me-2 fas fa-map-marker-alt"></i> 123 Coffee Lane, Brewville, CA 90210</li>
@@ -354,7 +805,7 @@
                         <li>Sat: 8:00 AM - 8:00 PM</li>
                         <li>Sun: 8:00 AM - 6:00 PM</li>
                     </ul>
-                </div>
+                </div> -->
                 
                 <!-- Newsletter -->
                 <div class="mb-4 col-lg-3 col-md-6">
@@ -368,7 +819,7 @@
                     </form>
                     <div class="mt-4">
                         <h6 class="mb-3 text-uppercase">Follow Us</h6>
-                        <a href="#" class="bg-primary me-2 social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="bg-gradient me-2 social-icon"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="bg-info me-2 social-icon"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="bg-danger me-2 social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="bg-success social-icon"><i class="fab fa-tiktok"></i></a>
@@ -393,7 +844,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <script>
+    <script>
+        // Navbar scroll behavior
         const navbar = document.getElementById('mainNavbar');
         let lastScrollY = window.scrollY;
 
@@ -407,13 +859,439 @@
             }
             lastScrollY = window.scrollY;
         });
+
+        // Product slider functionality
+        const productsContainer = document.getElementById('productsContainer');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        
+        let currentPosition = 0;
+        const cardWidth = document.querySelector('.product-card').offsetWidth + 20; // width + margin
+        
+        function updateSliderButtons() {
+            prevButton.disabled = currentPosition === 0;
+            
+            const containerWidth = productsContainer.parentElement.offsetWidth;
+            const totalWidth = productsContainer.scrollWidth;
+            
+            nextButton.disabled = currentPosition <= -(totalWidth - containerWidth - cardWidth);
+        }
+        
+        prevButton.addEventListener('click', () => {
+            const containerWidth = productsContainer.parentElement.offsetWidth;
+            currentPosition += containerWidth;
+            if (currentPosition > 0) currentPosition = 0;
+            
+            productsContainer.style.transform = `translateX(${currentPosition}px)`;
+            updateSliderButtons();
+        });
+        
+        nextButton.addEventListener('click', () => {
+            const containerWidth = productsContainer.parentElement.offsetWidth;
+            const totalWidth = productsContainer.scrollWidth;
+            
+            currentPosition -= containerWidth;
+            if (currentPosition < -(totalWidth - containerWidth)) {
+                currentPosition = -(totalWidth - containerWidth);
+            }
+            
+            productsContainer.style.transform = `translateX(${currentPosition}px)`;
+            updateSliderButtons();
+        });
+        
+        // Initialize slider buttons
+        window.addEventListener('load', updateSliderButtons);
+        window.addEventListener('resize', updateSliderButtons);
+
+        // Cart functionality
+        const cartButton = document.getElementById('cartButton');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const closeCart = document.getElementById('closeCart');
+        const cartBadge = document.getElementById('cartBadge');
+        const cartItems = document.getElementById('cartItems');
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+        const cartSubtotal = document.getElementById('cartSubtotal');
+        const cartTax = document.getElementById('cartTax');
+        const cartTotal = document.getElementById('cartTotal');
+        const checkoutButton = document.getElementById('checkoutButton');
+        
+        let cart = [];
+        
+        // Open cart sidebar
+        cartButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartSidebar.classList.add('open');
+            cartOverlay.classList.add('open');
+        });
+        
+        // Close cart sidebar
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        });
+        
+        cartOverlay.addEventListener('click', () => {
+            cartSidebar.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        });
+        
+        // Order modal functionality
+        const orderModal = new bootstrap.Modal(document.getElementById('orderModal'));
+        const orderButtons = document.querySelectorAll('.order-button');
+        const modalItemName = document.getElementById('modalItemName');
+        const modalItemImage = document.getElementById('modalItemImage');
+        const modalItemPrice = document.getElementById('modalItemPrice');
+        const modalItemDescription = document.getElementById('modalItemDescription');
+        const modalTotalPrice = document.getElementById('modalTotalPrice');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        
+        // Size options
+        const sizeOptions = document.querySelectorAll('.coffee-option');
+        let selectedSize = 'medium';
+        let selectedSizeModifier = 0.5;
+        
+        sizeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedSize = option.getAttribute('data-size');
+                selectedSizeModifier = parseFloat(option.getAttribute('data-price-modifier'));
+                updateModalPrice();
+            });
+        });
+        
+        // Milk option
+        const milkOption = document.getElementById('milkOption');
+        let milkModifier = 0;
+        
+        milkOption.addEventListener('change', () => {
+            const selectedOption = milkOption.options[milkOption.selectedIndex];
+            milkModifier = parseFloat(selectedOption.getAttribute('data-price-modifier'));
+            updateModalPrice();
+        });
+        
+        // Extras
+        const extraShot = document.getElementById('extraShot');
+        const whippedCream = document.getElementById('whippedCream');
+        const caramelDrizzle = document.getElementById('caramelDrizzle');
+        
+        let extrasModifier = 0;
+        
+        extraShot.addEventListener('change', updateModalPrice);
+        whippedCream.addEventListener('change', updateModalPrice);
+        caramelDrizzle.addEventListener('change', updateModalPrice);
+        
+        // Quantity
+        const decreaseQty = document.getElementById('decreaseQty');
+        const increaseQty = document.getElementById('increaseQty');
+        const itemQty = document.getElementById('itemQty');
+        
+        decreaseQty.addEventListener('click', () => {
+            if (itemQty.value > 1) {
+                itemQty.value--;
+                updateModalPrice();
+            }
+        });
+        
+        increaseQty.addEventListener('click', () => {
+            itemQty.value++;
+            updateModalPrice();
+        });
+        
+        itemQty.addEventListener('change', updateModalPrice);
+        
+        // Current item being customized
+        let currentItem = null;
+        let basePrice = 0;
+        
+        // Set up order buttons
+        orderButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currentItem = button.getAttribute('data-item');
+                basePrice = parseFloat(button.getAttribute('data-price'));
+                const imageSrc = button.getAttribute('data-image');
+                
+                modalItemName.textContent = currentItem;
+                modalItemImage.src = imageSrc;
+                modalItemPrice.textContent = `$${basePrice.toFixed(2)}`;
+                
+                // Set description based on item
+                if (currentItem === 'Cappuccino') {
+                    modalItemDescription.textContent = 'Perfect balance of espresso, steamed milk, and foam';
+                } else if (currentItem === 'Americano') {
+                    modalItemDescription.textContent = 'Espresso shots topped with hot water for a rich flavor';
+                } else if (currentItem === 'Espresso') {
+                    modalItemDescription.textContent = 'Strong and concentrated coffee, served in a small shot';
+                } else if (currentItem === 'Latte') {
+                    modalItemDescription.textContent = 'Smooth espresso with steamed milk and light foam';
+                } else if (currentItem === 'Mocha') {
+                    modalItemDescription.textContent = 'Chocolate-infused espresso with steamed milk';
+                } else if (currentItem === 'Macchiato') {
+                    modalItemDescription.textContent = 'Espresso with a small amount of milk foam';
+                }
+                
+                // Reset options
+                sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                document.querySelector('[data-size="medium"]').classList.add('selected');
+                selectedSize = 'medium';
+                selectedSizeModifier = 0.5;
+                
+                milkOption.selectedIndex = 0;
+                milkModifier = 0;
+                
+                extraShot.checked = false;
+                whippedCream.checked = false;
+                caramelDrizzle.checked = false;
+                
+                itemQty.value = 1;
+                
+                updateModalPrice();
+                
+                orderModal.show();
+            });
+        });
+        
+        // Update modal price
+        function updateModalPrice() {
+            extrasModifier = 0;
+            if (extraShot.checked) extrasModifier += 0.75;
+            if (whippedCream.checked) extrasModifier += 0.5;
+            if (caramelDrizzle.checked) extrasModifier += 0.5;
+            
+            const quantity = parseInt(itemQty.value);
+            const totalPrice = (basePrice + selectedSizeModifier + milkModifier + extrasModifier) * quantity;
+            
+            modalTotalPrice.textContent = `$${totalPrice.toFixed(2)}`;
+        }
+        
+        // Add to cart
+        addToCartBtn.addEventListener('click', () => {
+            const quantity = parseInt(itemQty.value);
+            
+            // Calculate extras
+            const extras = [];
+            if (extraShot.checked) extras.push('Extra Shot');
+            if (whippedCream.checked) extras.push('Whipped Cream');
+            if (caramelDrizzle.checked) extras.push('Caramel Drizzle');
+            
+            // Get milk type
+            const milkType = milkOption.options[milkOption.selectedIndex].text;
+            
+            // Calculate item total
+            const itemTotal = (basePrice + selectedSizeModifier + milkModifier + extrasModifier) * quantity;
+            
+            // Add to cart
+            cart.push({
+                name: currentItem,
+                size: selectedSize,
+                milk: milkType,
+                extras: extras,
+                quantity: quantity,
+                price: itemTotal,
+                image: modalItemImage.src
+            });
+            
+            // Update cart
+            updateCart();
+            
+            // Close modal
+            orderModal.hide();
+            
+            // Show success message
+            alert(`${currentItem} added to cart!`);
+        });
+        
+        // Update cart display
+        function updateCart() {
+            // Update badge
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartBadge.textContent = totalItems;
+            
+            // Clear cart items
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.appendChild(emptyCartMessage);
+            } else {
+                emptyCartMessage.remove();
+                
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'd-flex justify-content-between align-items-center mb-3 pb-3 border-bottom';
+                    cartItem.innerHTML = `
+                        <div class="d-flex align-items-center">
+                            <img src="${item.image}" class="me-3 cart-item-img" alt="${item.name}">
+                            <div>
+                                <h6 class="mb-1">${item.name} (${item.size})</h6>
+                                <small class="text-muted">${item.milk}</small>
+                                ${item.extras.length > 0 ? `<small class="d-block text-muted">Extras: ${item.extras.join(', ')}</small>` : ''}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="quantity-btn" onclick="decreaseCartItem(${index})">-</div>
+                                <span class="mx-2">${item.quantity}</span>
+                                <div class="quantity-btn" onclick="increaseCartItem(${index})">+</div>
+                            </div>
+                            <div class="text-end">
+                                <span class="fw-bold">$${item.price.toFixed(2)}</span>
+                                <button type="button" class="ms-2 p-0 text-danger btn btn-link" onclick="removeCartItem(${index})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+            }
+            
+            // Update totals
+            const subtotal = cart.reduce((total, item) => total + item.price, 0);
+            const tax = subtotal * 0.1; // 10% tax
+            const total = subtotal + tax;
+            
+            cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            cartTax.textContent = `$${tax.toFixed(2)}`;
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+        
+        // Cart item functions (need to be global for onclick)
+        function decreaseCartItem(index) {
+            if (cart[index].quantity > 1) {
+                const pricePerItem = cart[index].price / cart[index].quantity;
+                cart[index].quantity--;
+                cart[index].price = pricePerItem * cart[index].quantity;
+            } else {
+                cart.splice(index, 1);
+            }
+            updateCart();
+        }
+        
+        function increaseCartItem(index) {
+            const pricePerItem = cart[index].price / cart[index].quantity;
+            cart[index].quantity++;
+            cart[index].price = pricePerItem * cart[index].quantity;
+            updateCart();
+        }
+        
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+        
+        // Checkout functionality
+        const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+        const checkoutItems = document.getElementById('checkoutItems');
+        const checkoutSubtotal = document.getElementById('checkoutSubtotal');
+        const checkoutTax = document.getElementById('checkoutTax');
+        const checkoutTotal = document.getElementById('checkoutTotal');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const deliveryAddress = document.getElementById('deliveryAddress');
+        const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+        const orderNumber = document.getElementById('orderNumber');
+        const readyTime = document.getElementById('readyTime');
+        
+        // Delivery option toggle
+        document.querySelectorAll('input[name="pickupMethod"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.value === 'delivery') {
+                    deliveryAddress.classList.remove('d-none');
+                } else {
+                    deliveryAddress.classList.add('d-none');
+                }
+            });
+        });
+        
+        // Checkout button
+        checkoutButton.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            // Update checkout items
+            checkoutItems.innerHTML = '';
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'd-flex justify-content-between align-items-center mb-2';
+                itemElement.innerHTML = `
+                    <div>
+                        <span class="fw-bold">${item.quantity}x</span> ${item.name} (${item.size})
+                    </div>
+                    <div>$${item.price.toFixed(2)}</div>
+                `;
+                checkoutItems.appendChild(itemElement);
+            });
+            
+            // Update checkout totals
+            const subtotal = cart.reduce((total, item) => total + item.price, 0);
+            let deliveryFee = 0;
+            
+            // Check if delivery is selected
+            if (document.getElementById('delivery').checked) {
+                deliveryFee = 5;
+            }
+            
+            const tax = (subtotal + deliveryFee) * 0.1;
+            const total = subtotal + tax + deliveryFee;
+            
+            checkoutSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            
+            // Add delivery fee if applicable
+            if (deliveryFee > 0) {
+                const deliveryElement = document.createElement('div');
+                deliveryElement.className = 'd-flex justify-content-between mb-2';
+                deliveryElement.innerHTML = `
+                    <span>Delivery Fee:</span>
+                    <span>$${deliveryFee.toFixed(2)}</span>
+                `;
+                checkoutItems.appendChild(deliveryElement);
+                
+                checkoutSubtotal.textContent = `$${(subtotal + deliveryFee).toFixed(2)}`;
+            }
+            
+            checkoutTax.textContent = `$${tax.toFixed(2)}`;
+            checkoutTotal.textContent = `$${total.toFixed(2)}`;
+            
+            // Show checkout modal
+            checkoutModal.show();
+            
+            // Close cart sidebar
+            cartSidebar.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        });
+        
+        // Form submission
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Generate random order number
+            const randomOrderNumber = 'GC' + Math.floor(10000 + Math.random() * 90000);
+            
+            // Calculate ready time (15-25 minutes from now)
+            const now = new Date();
+            const readyMinutes = 15 + Math.floor(Math.random() * 11);
+            now.setMinutes(now.getMinutes() + readyMinutes);
+            const readyTimeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            // Update confirmation modal
+            orderNumber.textContent = randomOrderNumber;
+            readyTime.textContent = readyTimeString;
+            
+            // Hide checkout modal and show confirmation
+            checkoutModal.hide();
+            confirmationModal.show();
+            
+            // Clear cart
+            cart = [];
+            updateCart();
+        });
+        
+        // Print receipt
+        document.getElementById('printReceipt').addEventListener('click', () => {
+            window.print();
+        });
     </script>
-    
 </body>
-</html>
-</body>
-</html>
-</html>
-</html>
-</html>
 </html>
